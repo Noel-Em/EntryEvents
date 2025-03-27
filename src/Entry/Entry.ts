@@ -13,8 +13,8 @@ export class Entry {
 
     once(entryName: string, func: (...args: any[]) => any) {
         const fWrapper = (...args: any[]) => {
-            func(...args);
             this.off(entryName);
+            return func(...args);
         }
 
         this.on(entryName, fWrapper);

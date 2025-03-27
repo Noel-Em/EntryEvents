@@ -18,8 +18,8 @@ export class GEntry {
 
     public static once(entryName: string, func: (...args: any[]) => any) {
         const fWrapper = (...args: any[]) => {
-            func(...args);
             GEntry.off(entryName);
+            return func(...args);
         }
 
         GEntry.on(entryName, fWrapper);

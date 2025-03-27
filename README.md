@@ -29,15 +29,15 @@ import { EntryEvents } from 'entry-events';
 const { GEntry, Entry } = EntryEvents;
 
 GEntry.on('tell', (message: string) => {
-    return `Global says: {message}`;
+    return "Global says: " + message;
 });
 
 console.log(GEntry.emit("tell", "Welcome on EntryEvents"));
 
 const e = new Entry();
 e.once('tell', (message: string) => {
-    return `Local Entry: {message}`;
+    return "Local Entry: " + message;
 });
 
-console.log(e.emit("tell", "Here's a little example on how to use it"));
+console.log( e.emit("tell", "Here's a little example on how to use it") );
 ```
