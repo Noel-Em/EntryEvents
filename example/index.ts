@@ -14,10 +14,3 @@ GEntry.once("start", async () => {
 
 await GEntry.asemit("start"); // runs an entry in async
 // await GEntry.asemit("start"); // it won't run a second time, it's a once entry and will result in an error
-
-const e = new Entry();
-e.once("message", (message: string) => {
-    return message;
-});
-
-console.log(e.emit("message", "ciao"));
