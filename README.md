@@ -1,5 +1,11 @@
 # EntryEvents
 
+![NPM Version](https://img.shields.io/npm/v/entry-events)
+![NPM License](https://img.shields.io/npm/l/entry-events)
+![NPM Downloads](https://img.shields.io/npm/dw/entry-events)
+![NPM Last Update](https://img.shields.io/npm/last-update/entry-events)
+![Static Badge](https://img.shields.io/badge/created_by-@Noel--Em-purple)
+
 ## Introduction
 
 > WARNING: for now, in version 1.0, EntryEvents works only with bun
