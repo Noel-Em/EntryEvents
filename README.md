@@ -8,9 +8,7 @@
 
 ## Introduction
 
-> WARNING: for now, in version 1.0, EntryEvents works only with bun
-
-EntryEvents is an event-driven system in TypeScript for handling custom events and listeners, designed to simplify event handling.<br>
+EntryEvents is an event-driven system for JavaScript and TypeScript for handling custom events and listeners, designed to simplify event handling.<br>
 It is crafted with simplicity and usability in mind, making it ideal for applications where event handling is needed without the complexity of heavy frameworks.
 
 ### Why choose EntryEvents?
@@ -25,6 +23,9 @@ It is crafted with simplicity and usability in mind, making it ideal for applica
 
 # Install
 
+### Node
+```npm i entry-events```
+
 ### Bun
 ```bun i entry-events```
 
@@ -35,14 +36,14 @@ import { EntryEvents } from 'entry-events';
 const { GEntry, Entry } = EntryEvents;
 
 GEntry.on('tell', (message: string) => {
-    return "Global says: " + message;
+    return "Global tells: " + message;
 });
 
 console.log(GEntry.emit("tell", "Welcome on EntryEvents"));
 
 const e = new Entry();
 e.once('tell', (message: string) => {
-    return "Local Entry: " + message;
+    return "Local Entry tells: " + message;
 });
 
 console.log( e.emit("tell", "Here's a little example on how to use it") );

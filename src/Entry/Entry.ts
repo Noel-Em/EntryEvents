@@ -1,9 +1,9 @@
 export class Entry {
     private entryList: Record<string, (...args: any) => any> = {};
 
-    on(entryName: string, func: (...args: any[]) => any, override: boolean = false) {
+    on(entryName: string, callback: (...args: any[]) => any, override: boolean = false) {
         if(this.entryList[entryName] && !override) throw new Error("entry `" + entryName + "` already exists");
-        this.entryList[entryName] = func;
+        this.entryList[entryName] = callback;
     }
 
     off(entryName: string) {
@@ -11,13 +11,13 @@ export class Entry {
         delete this.entryList[entryName];
     }
 
-    once(entryName: string, func: (...args: any[]) => any) {
-        const fWrapper = (...args: any[]) => {
+    once(entryName: string, callback: (...args: any[]) => any) {
+        const cWrapper = (...args: any[]) => {
             this.off(entryName);
-            return func(...args);
+            return callback(...args);
         }
 
-        this.on(entryName, fWrapper);
+        this.on(entryName, cWrapper);
     }
 
     emit(entryName: string, ...args: any[]) {

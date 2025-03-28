@@ -1,20 +1,43 @@
 {
   "name": "entry-events",
-  "version": "1.0.3",
-  "description": "An event-driven system in TypeScript for handling custom events and listeners, designed to simplify event handling",
-  "main": "./src/index.ts",
-  "module": "./src/index.ts",
+  "version": "1.0.5",
   "type": "module",
+  "description": "An event-driven system in TypeScript and JavaScript for handling custom events and listeners, designed to simplify event handling",
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.js",
+  "exports": {
+    "import": "./dist/index.js",
+    "require": "./dist/index.cjs"
+  },
+  "types": "./dist/index.d.ts",
+  "files": [
+    "dist",
+    "LICENSE",
+    "README.md"
+  ],
+  "keywords": [
+    "event",
+    "emit",
+    "typescript",
+    "javascript",
+    "custom events",
+    "listener",
+    "event-driven",
+    "node",
+    "bun"
+  ],
   "scripts": {
-    "test": "bun run ./example/index.ts"
+    "test": "node --import tsx ./example/index.ts",
+    "b-test": "bun run ./example/index.ts",
+    "n-test": "node --import tsx ./example/index.ts",
+    "build": "tsup"
   },
   "devDependencies": {
-    "@types/bun": "latest"
+    "@types/bun": "latest",
+    "tsup": "^8.4.0",
+    "tsx": "^4.19.3"
   },
-  "peerDependencies": {
-    "typescript": "^5"
-  },
-  "author": "Leonardo Ulino",
+  "author": "Leonardo Ulino [NoelEm]",
   "license": "MIT",
   "repository": {
     "type": "git",

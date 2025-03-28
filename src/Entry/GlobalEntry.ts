@@ -1,9 +1,9 @@
 export class GEntry {
     private static entryList: Record<string, (...args: any) => any> = {};
 
-    public static on(entryName: string, func: (...args: any[]) => any, override: boolean = false) {
+    public static on(entryName: string, callback: (...args: any[]) => any, override: boolean = false) {
         if(GEntry.entryList[entryName] && !override) throw new Error("entry `" + entryName + "` already exists");
-        GEntry.entryList[entryName] = func;
+        GEntry.entryList[entryName] = callback;
     }
 
     public static emit(entryName: string, ...args: any[]) {
@@ -16,10 +16,10 @@ export class GEntry {
         delete GEntry.entryList[entryName];
     }
 
-    public static once(entryName: string, func: (...args: any[]) => any) {
+    public static once(entryName: string, callback: (...args: any[]) => any) {
         const fWrapper = (...args: any[]) => {
             GEntry.off(entryName);
-            return func(...args);
+            return callback(...args);
         }
 
         GEntry.on(entryName, fWrapper);
